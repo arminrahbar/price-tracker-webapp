@@ -169,16 +169,30 @@ const Layout = ({
 
       {/* Footer component */}
       <footer className="app-footer">
-        <p>&copy; {new Date().getFullYear()} Savr. All rights reserved.</p>
-        <div className="footer-links">
-          <span onClick={() => navigate("/contact-us")} className="footer-link">
-            Contact Us
-          </span>
-          <span onClick={() => navigate("/learn-more")} className="footer-link">
-            How Savr Works
-          </span>
+        <div className="footer-container">
+          {/* Buttons Div */}
+          <div className="footer-buttons">
+            <span
+              onClick={() => navigate("/contact-us")}
+              className="footer-link"
+            >
+              Contact Us
+            </span>
+            <span
+              onClick={() => navigate("/learn-more")}
+              className="footer-link"
+            >
+              How Savr Works
+            </span>
+          </div>
 
-          <span className="social-media">
+          {/* Centered Text */}
+          <p className="footer-text">
+            &copy; {new Date().getFullYear()} Savr. All rights reserved.
+          </p>
+
+          {/* Social Media Icons Div */}
+          <div className="social-media">
             <a
               href="https://www.facebook.com"
               target="_blank"
@@ -203,7 +217,7 @@ const Layout = ({
             >
               <i className="fab fa-instagram"></i>
             </a>
-          </span>
+          </div>
         </div>
       </footer>
     </div>

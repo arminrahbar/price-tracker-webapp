@@ -5,45 +5,48 @@ import "./Home.css"; // Use the same CSS styles for consistency
 function LearnMore() {
   return (
     <Layout>
-      <div className="learn-more-container" style={{ marginTop: '70px'}}>
-      
-        <h1>How Savr Works</h1>
-        <p>
-          It is important to us that you feel safe when you compare prices of a
-          product you might be interested to buy or use any of our other
-          services. Therefore, we are providing you with certain information
-          about how to use Savr.
-        </p>
+      <div className="container">
+        <div className="second-header">
+          <h2>
+            How Savr Works</h2>
+            <div className="learn-more-container">
+              <p>
+                It is important to us that you feel safe when you compare prices
+                of a product you might be interested to buy or use any of our
+                other services. Therefore, we are providing you with certain
+                information about how to use Savr.
+              </p>
 
-        <h2>How to add and remove a product from tracking</h2>
+              <h2>How to find the products you are looking for</h2>
 
-        <p>
-          On home page, click on "Add Product" to add a new product to your
-          price tracking list. To remove a product, you can click on "Remove
-          Product" to remove a product from tracking. The tracked products on
-          home display the the products whose price you are interested to track
-          or are tracking across various websites.
-        </p>
+              <p>
+                On home page, you can see all available products and their lowest price current price
+                displayed. You can add these products to your favorite collections by clicking the heart icon
+                on the top right hand corner of each product. 
+              </p>
 
-        <h2>How to add and remove a vendor from tracking</h2>
-        <p>
-          On product details page for a given product, you can add new vendors to track their prices for the current product.
-          To add a new vendor, click on "Add Vendor" which takes you to a page where you can select new vendors. 
-          To remove an existing vendor, click on "Remove Vendor" to remove. 
-        </p>
+              <h2>How to add products to your favorite collections</h2>
+              <p>
+                Clicking on the heart icon on each provides you with options to create new collection
+                and add your products to any of these newly or previous created collections. 
+                To see your favorite collections, click on the Favorites tab in the header of the website.
+              </p>
 
-        <h2>Product Updates and Notifications</h2>
-        <p>
-          Our product update system notifies you whenever a price change occurs
-          for a product in your tracking list. On the home page, a notification appears
-          to the left of a product if a vendor's price for that item has changed since 
-          user last viewed the product details page for that product. 
-        </p>
+              <h2>How to see product price history from various vendors</h2>
+              <p>
+                Clicking on each product, takes you to the product page where you can see
+                details about the product and list of vendors for that product and their prices.
+                Under the vendors, there is a graph displayed that displays price trends 
+                over time from various vendors
+              </p>
 
-        <p>
-          Thank you for choosing Savr! <br />
-          We hope our platform helps you save time and money.
-        </p>
+              <p>
+                Thank you for choosing Savr! <br />
+                We hope our platform helps you save time and money.
+              </p>
+            </div>
+          
+        </div>
       </div>
     </Layout>
   );

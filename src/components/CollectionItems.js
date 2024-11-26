@@ -4,9 +4,11 @@ import { useProducts } from "../contexts/ProductsContext";
 import Layout from "./Layout";
 import "./Home.css";
 
+
 const CollectionItem = () => {
   const { collectionName } = useParams();
-  const { collections, setCollections, setFavorites, removeFromCollection } = useProducts();
+  const { collections, setCollections, setFavorites, removeFromCollection } =
+    useProducts();
   const navigate = useNavigate();
   const [showUndoButton, setShowUndoButton] = useState(false);
   const [removedProduct, setRemovedProduct] = useState(null);
@@ -32,7 +34,7 @@ const CollectionItem = () => {
 
   const handleRemove = (item) => {
     const productId = item.id;
-  
+
     if (collection.name === "All Items") {
       // If the current collection is "All Items," remove the product from all collections
       setCollections((prevCollections) =>
@@ -41,27 +43,30 @@ const CollectionItem = () => {
           items: col.items.filter((product) => product.id !== productId),
         }))
       );
-  
+
       // Also remove from favorites since it no longer exists in any collection
       setFavorites((prev) => {
         const updatedFavorites = new Set(prev);
         updatedFavorites.delete(productId);
-        sessionStorage.setItem("favorites", JSON.stringify([...updatedFavorites]));
+        sessionStorage.setItem(
+          "favorites",
+          JSON.stringify([...updatedFavorites])
+        );
         return updatedFavorites;
       });
     } else {
       // Remove item from the current collection
       removeFromCollection(collection.name, productId);
-  
+
       // Check if the item exists in any other collections
       const existsInOtherCollections = collections
         .filter((col) => col.name !== collection.name)
         .some((col) => col.items.some((product) => product.id === productId));
-  
+
       if (!existsInOtherCollections) {
         // If it doesn't exist in other collections, remove it from All Items
         removeFromCollection("All Items", productId);
-  
+
         // Also remove from favorites since it no longer exists in any collection
         setFavorites((prev) => {
           const updatedFavorites = new Set(prev);
@@ -74,12 +79,12 @@ const CollectionItem = () => {
         });
       }
     }
-  
+
     // Store removed item and collection for Undo
     setRemovedProduct(item);
     setRemovedCollectionName(collection.name);
     setShowUndoButton(true);
-  
+
     // Hide Undo button after 5 seconds
     setTimeout(() => {
       setShowUndoButton(false);
@@ -87,8 +92,6 @@ const CollectionItem = () => {
       setRemovedCollectionName(null);
     }, 5000);
   };
-  
-  
 
   const handleUndo = () => {
     if (removedProduct) {
@@ -151,12 +154,12 @@ const CollectionItem = () => {
                 />
               </div>
               <p>{item.information || "No description available"}</p>
-              <p className="price">
+              <h5 className="price">
                 $
                 {item.sites && item.sites.length > 0
                   ? item.sites[0].price
                   : "N/A"}
-              </p>
+              </h5>
               <button
                 className="remove-button"
                 onClick={(e) => {
@@ -165,26 +168,34 @@ const CollectionItem = () => {
                 }}
                 style={{
                   position: "absolute",
+                  top: "30px",
                   right: "10px",
-                  top: "50%",
                   transform: "translateY(-50%)",
-                  backgroundColor: "#FF6347",
-                  color: "white",
+                  backgroundColor: "transparent",
                   border: "none",
-                  borderRadius: "3px",
-                  padding: "4px 8px",
-                  fontSize: "12px",
                   cursor: "pointer",
-                  transition: "background-color 0.3s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
-                onMouseEnter={(e) =>
-                  (e.target.style.backgroundColor = "#FF4500")
-                }
-                onMouseLeave={(e) =>
-                  (e.target.style.backgroundColor = "#FF6347")
-                }
+               
               >
-                Remove
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ width: "24px", height: "24px" }}
+                >
+                  <path d="M3 6h18" />
+                  <path d="M8 6V4h8v2" />
+                  <rect x="5" y="6" width="14" height="14" rx="2" ry="2" />
+                  <line x1="10" y1="11" x2="10" y2="17" />
+                  <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
               </button>
             </div>
           ))}

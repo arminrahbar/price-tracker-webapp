@@ -75,32 +75,38 @@ const Favorites = () => {
           <div className="favorites-with-sidebar">
             <SearchFilterSidebar setPriceFilter={setPriceFilter} />
             <div className="search-results-container">
-              <div className="products-grid">
-                {filteredItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="product-card"
-                    onClick={() => navigate(`/product/${item.id}`)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <h2>{item.name}</h2>
-                    <div className="image-container">
-                      <img
-                        src={process.env.PUBLIC_URL + item.image}
-                        alt={item.name}
-                        className="product-image"
-                      />
+              {filteredItems.length === 0 ? (
+                <div className="no-matches">
+                  <p>No matches found. Expand your search</p>
+                </div>
+              ) : (
+                <div className="products-grid">
+                  {filteredItems.map((item) => (
+                    <div
+                      key={item.id}
+                      className="product-card"
+                      onClick={() => navigate(`/product/${item.id}`)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <h2>{item.name}</h2>
+                      <div className="image-container">
+                        <img
+                          src={process.env.PUBLIC_URL + item.image}
+                          alt={item.name}
+                          className="product-image"
+                        />
+                      </div>
+                      <p>{item.description || "No description available"}</p>
+                      <p className="price">
+                        $
+                        {item.sites && item.sites.length > 0
+                          ? item.sites[0].price
+                          : "N/A"}
+                      </p>
                     </div>
-                    <p>{item.description || "No description available"}</p>
-                    <p className="price">
-                      $
-                      {item.sites && item.sites.length > 0
-                        ? item.sites[0].price
-                        : "N/A"}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -179,9 +185,7 @@ const Favorites = () => {
                           alt={collection.items[0].name}
                         />
                       ) : (
-                        <div className="placeholder">
-                          
-                        </div> /* Placeholder content */
+                        <div className="placeholder"></div> /* Placeholder content */
                       )}
                     </div>
 

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import './Home.css'; // Use the existing CSS
-import Layout from './Layout'; // Import the common layout
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Home.css"; // Use the existing CSS
+import Layout from "./Layout"; // Import the common layout
+import { useNavigate } from "react-router-dom";
 
 function ContactUs() {
   // State to handle form inputs
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   // State for showing success or error messages
-  const [statusMessage, setStatusMessage] = useState('');
+  const [statusMessage, setStatusMessage] = useState("");
 
   // Navigate hook to redirect to other pages
   const navigate = useNavigate();
@@ -29,25 +29,33 @@ function ContactUs() {
 
     // Simple validation
     if (!formData.name || !formData.email || !formData.message) {
-      setStatusMessage('Please fill out all fields.');
+      setStatusMessage("Please fill out all fields.");
       return;
     }
 
     // Mock form submission (Replace this with real API call if necessary)
     setTimeout(() => {
-      setStatusMessage('Your message has been sent! We will get back to you soon.');
-      setFormData({ name: '', email: '', message: '' }); // Clear form after submission
+      setStatusMessage(
+        "Your message has been sent! We will get back to you soon."
+      );
+      setFormData({ name: "", email: "", message: "" }); // Clear form after submission
     }, 1000);
   };
 
   return (
     <Layout>
-      <div className="contact-container">
-        <h2 className="contact-title">Contact Us</h2>
+      <div className="container">
+        <div className="second-header">
+          <h2>Contact Page</h2>
+        </div>
+        </div>
+        <div className="contact-container">
         <form className="contact-form" onSubmit={handleSubmit}>
           {/* Name Input */}
           <div className="form-group">
-            <label htmlFor="name" className="form-label">Name:</label>
+            <label htmlFor="name" className="form-label">
+              Name:
+            </label>
             <input
               type="text"
               id="name"
@@ -62,7 +70,9 @@ function ContactUs() {
 
           {/* Email Input */}
           <div className="form-group">
-            <label htmlFor="email" className="form-label">Email:</label>
+            <label htmlFor="email" className="form-label">
+              Email:
+            </label>
             <input
               type="email"
               id="email"
@@ -77,7 +87,9 @@ function ContactUs() {
 
           {/* Message Textarea */}
           <div className="form-group">
-            <label htmlFor="message" className="form-label">Message:</label>
+            <label htmlFor="message" className="form-label">
+              Message:
+            </label>
             <textarea
               id="message"
               name="message"
@@ -95,17 +107,14 @@ function ContactUs() {
 
           {/* Buttons Container with Flexbox */}
           <div className="button-group">
-            <button type="submit" className="btn">
-              Send Message
-            </button>
-
-            <button
-              type="button"
-              className="btn"
-              onClick={() => navigate('/')} // Redirect to homepage
-            >
-              Back to Home
-            </button>
+          <button type="submit" className="btn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+    <path d="M22 2L11 13"></path>
+    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+    <circle cx="11" cy="13" r="1" fill="currentColor"></circle>
+  </svg>
+  Send Message
+</button>
           </div>
         </form>
       </div>

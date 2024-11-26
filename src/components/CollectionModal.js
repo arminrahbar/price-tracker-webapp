@@ -96,8 +96,8 @@ const CollectionModal = ({ collections, show, onSelect, onClose, onCreateCollect
             marginTop: '10px',
             padding: '6px 12px',
             fontSize: '12px',
-            backgroundColor: '#ccc',
-            color: 'black',
+            backgroundColor: 'rgb(138, 44, 44)',
+            color: 'white',
             border: 'none',
             borderRadius: '4px',
             cursor: 'pointer',
@@ -122,10 +122,10 @@ const CollectionModal = ({ collections, show, onSelect, onClose, onCreateCollect
                   textAlign: 'left',
                   fontSize: '14px',
                   backgroundColor: selectedCollections.includes(collection.name)
-                    ? 'blue'
+                    ? '#d6961f'
                     : 'white',
                   color: selectedCollections.includes(collection.name)
-                    ? 'white'
+                    ? 'black'
                     : 'black',
                   border: '1px solid #ccc',
                   borderRadius: '4px',
@@ -145,8 +145,8 @@ const CollectionModal = ({ collections, show, onSelect, onClose, onCreateCollect
             marginTop: '10px',
             padding: '6px 12px',
             fontSize: '12px',
-            backgroundColor: selectedCollections.length === 0 ? '#eee' : '#ccc',
-            color: selectedCollections.length === 0 ? '#888' : 'black',
+            backgroundColor: selectedCollections.length === 0 ? '#eee' : 'rgb(138, 44, 44)',
+            color: selectedCollections.length === 0 ? '#888' : 'white',
             border: 'none',
             borderRadius: '4px',
             cursor: selectedCollections.length === 0 ? 'not-allowed' : 'pointer',
@@ -161,10 +161,11 @@ const CollectionModal = ({ collections, show, onSelect, onClose, onCreateCollect
           }}
           style={{
             marginTop: '10px',
-            padding: '6px 12px',
+            padding: '6px 12px', 
+            margin: '5px',
             fontSize: '12px',
-            backgroundColor: '#ccc',
-            color: 'black',
+            backgroundColor: 'rgb(138, 44, 44)',
+            color: 'white',
             border: 'none',
             borderRadius: '4px',
             cursor: 'pointer',

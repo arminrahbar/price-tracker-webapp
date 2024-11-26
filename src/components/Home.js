@@ -177,6 +177,14 @@ function Home() {
   const renderProducts = () => {
     const filteredProducts = filterProducts();
 
+    if (filteredProducts.length === 0) {
+      return (
+        <div className="no-matches">
+          <p>No matches found. Expand your search</p>
+        </div>
+      );
+    }
+
     return (
       <div className="products-grid">
         {filteredProducts.map((product) => (
@@ -223,7 +231,7 @@ function Home() {
             </div>
             <p>{product.information}</p>
             {product.sites && product.sites.length > 0 && (
-              <p style={{ fontWeight: "bold" }}>${product.sites[0].price}</p>
+              <h5>${product.sites[0].price}</h5>
             )}
           </div>
         ))}
