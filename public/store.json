@@ -3,13 +3,125 @@
     "id": 1,
     "name": "MacBook Pro 16\" Laptop",
     "sites": [
-      { "site": "Amazon", "price": "3300" },
-      { "site": "Newegg", "price": "3500" },
-      { "site": "Target", "price": "3550" },
-      { "site": "Walmart", "price": "3530" },
-      { "site": "Fry's Electronics", "price": "3400" },
-      { "site": "Micro Center", "price": "3450" },
-      { "site": "Costco", "price": "3420" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3300 },
+          { "monthNumber": 2, "monthName": "February", "price": 3350 },
+          { "monthNumber": 3, "monthName": "March", "price": 3300 },
+          { "monthNumber": 4, "monthName": "April", "price": 3400 },
+          { "monthNumber": 5, "monthName": "May", "price": 3300 },
+          { "monthNumber": 6, "monthName": "June", "price": 3300 },
+          { "monthNumber": 7, "monthName": "July", "price": 3450 },
+          { "monthNumber": 8, "monthName": "August", "price": 3250 },
+          { "monthNumber": 9, "monthName": "September", "price": 3300 },
+          { "monthNumber": 10, "monthName": "October", "price": 3500 },
+          { "monthNumber": 11, "monthName": "November", "price": 3300 },
+          { "monthNumber": 12, "monthName": "December", "price": 3300 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3500 },
+          { "monthNumber": 2, "monthName": "February", "price": 3600 },
+          { "monthNumber": 3, "monthName": "March", "price": 3500 },
+          { "monthNumber": 4, "monthName": "April", "price": 3550 },
+          { "monthNumber": 5, "monthName": "May", "price": 3500 },
+          { "monthNumber": 6, "monthName": "June", "price": 3500 },
+          { "monthNumber": 7, "monthName": "July", "price": 3700 },
+          { "monthNumber": 8, "monthName": "August", "price": 3400 },
+          { "monthNumber": 9, "monthName": "September", "price": 3500 },
+          { "monthNumber": 10, "monthName": "October", "price": 3800 },
+          { "monthNumber": 11, "monthName": "November", "price": 3500 },
+          { "monthNumber": 12, "monthName": "December", "price": 3500 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3550 },
+          { "monthNumber": 2, "monthName": "February", "price": 3600 },
+          { "monthNumber": 3, "monthName": "March", "price": 3550 },
+          { "monthNumber": 4, "monthName": "April", "price": 3700 },
+          { "monthNumber": 5, "monthName": "May", "price": 3550 },
+          { "monthNumber": 6, "monthName": "June", "price": 3550 },
+          { "monthNumber": 7, "monthName": "July", "price": 3800 },
+          { "monthNumber": 8, "monthName": "August", "price": 3500 },
+          { "monthNumber": 9, "monthName": "September", "price": 3550 },
+          { "monthNumber": 10, "monthName": "October", "price": 3900 },
+          { "monthNumber": 11, "monthName": "November", "price": 3550 },
+          { "monthNumber": 12, "monthName": "December", "price": 3550 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3530 },
+          { "monthNumber": 2, "monthName": "February", "price": 3580 },
+          { "monthNumber": 3, "monthName": "March", "price": 3530 },
+          { "monthNumber": 4, "monthName": "April", "price": 3630 },
+          { "monthNumber": 5, "monthName": "May", "price": 3530 },
+          { "monthNumber": 6, "monthName": "June", "price": 3530 },
+          { "monthNumber": 7, "monthName": "July", "price": 3730 },
+          { "monthNumber": 8, "monthName": "August", "price": 3480 },
+          { "monthNumber": 9, "monthName": "September", "price": 3530 },
+          { "monthNumber": 10, "monthName": "October", "price": 3830 },
+          { "monthNumber": 11, "monthName": "November", "price": 3530 },
+          { "monthNumber": 12, "monthName": "December", "price": 3530 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3400 },
+          { "monthNumber": 2, "monthName": "February", "price": 3450 },
+          { "monthNumber": 3, "monthName": "March", "price": 3400 },
+          { "monthNumber": 4, "monthName": "April", "price": 3500 },
+          { "monthNumber": 5, "monthName": "May", "price": 3400 },
+          { "monthNumber": 6, "monthName": "June", "price": 3400 },
+          { "monthNumber": 7, "monthName": "July", "price": 3600 },
+          { "monthNumber": 8, "monthName": "August", "price": 3300 },
+          { "monthNumber": 9, "monthName": "September", "price": 3400 },
+          { "monthNumber": 10, "monthName": "October", "price": 3700 },
+          { "monthNumber": 11, "monthName": "November", "price": 3400 },
+          { "monthNumber": 12, "monthName": "December", "price": 3400 }
+        ]
+      },
+      {
+        "site": "Micro Center",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3450 },
+          { "monthNumber": 2, "monthName": "February", "price": 3500 },
+          { "monthNumber": 3, "monthName": "March", "price": 3450 },
+          { "monthNumber": 4, "monthName": "April", "price": 3550 },
+          { "monthNumber": 5, "monthName": "May", "price": 3450 },
+          { "monthNumber": 6, "monthName": "June", "price": 3450 },
+          { "monthNumber": 7, "monthName": "July", "price": 3650 },
+          { "monthNumber": 8, "monthName": "August", "price": 3400 },
+          { "monthNumber": 9, "monthName": "September", "price": 3450 },
+          { "monthNumber": 10, "monthName": "October", "price": 3750 },
+          { "monthNumber": 11, "monthName": "November", "price": 3450 },
+          { "monthNumber": 12, "monthName": "December", "price": 3450 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 3420 },
+          { "monthNumber": 2, "monthName": "February", "price": 3470 },
+          { "monthNumber": 3, "monthName": "March", "price": 3420 },
+          { "monthNumber": 4, "monthName": "April", "price": 3520 },
+          { "monthNumber": 5, "monthName": "May", "price": 3420 },
+          { "monthNumber": 6, "monthName": "June", "price": 3420 },
+          { "monthNumber": 7, "monthName": "July", "price": 3620 },
+          { "monthNumber": 8, "monthName": "August", "price": 3370 },
+          { "monthNumber": 9, "monthName": "September", "price": 3420 },
+          { "monthNumber": 10, "monthName": "October", "price": 3720 },
+          { "monthNumber": 11, "monthName": "November", "price": 3420 },
+          { "monthNumber": 12, "monthName": "December", "price": 3420 }
+        ]
+      }
     ],
     "information": "M3 Max chip  - 48GB Memory - 40-core GPU - 1TB SSD - Space Black",
     "image": "/images/macbook-pro.jpg"
@@ -18,13 +130,125 @@
     "id": 2,
     "name": "iPhone 15 Pro Max",
     "sites": [
-      { "site": "Amazon", "price": "950" },
-      { "site": "Walmart", "price": "1099" },
-      { "site": "Target", "price": "1025" },
-      { "site": "Newegg", "price": "1100" },
-      { "site": "Costco", "price": "1005" },
-      { "site": "Sam's Club", "price": "1050" },
-      { "site": "Fry's Electronics", "price": "1060" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 950 },
+          { "monthNumber": 2, "monthName": "February", "price": 960 },
+          { "monthNumber": 3, "monthName": "March", "price": 950 },
+          { "monthNumber": 4, "monthName": "April", "price": 970 },
+          { "monthNumber": 5, "monthName": "May", "price": 950 },
+          { "monthNumber": 6, "monthName": "June", "price": 950 },
+          { "monthNumber": 7, "monthName": "July", "price": 980 },
+          { "monthNumber": 8, "monthName": "August", "price": 940 },
+          { "monthNumber": 9, "monthName": "September", "price": 930 },
+          { "monthNumber": 10, "monthName": "October", "price": 950 },
+          { "monthNumber": 11, "monthName": "November", "price": 990 },
+          { "monthNumber": 12, "monthName": "December", "price": 950 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1099 },
+          { "monthNumber": 2, "monthName": "February", "price": 1120 },
+          { "monthNumber": 3, "monthName": "March", "price": 1099 },
+          { "monthNumber": 4, "monthName": "April", "price": 1115 },
+          { "monthNumber": 5, "monthName": "May", "price": 1099 },
+          { "monthNumber": 6, "monthName": "June", "price": 1099 },
+          { "monthNumber": 7, "monthName": "July", "price": 1130 },
+          { "monthNumber": 8, "monthName": "August", "price": 1105 },
+          { "monthNumber": 9, "monthName": "September", "price": 1140 },
+          { "monthNumber": 10, "monthName": "October", "price": 1099 },
+          { "monthNumber": 11, "monthName": "November", "price": 1150 },
+          { "monthNumber": 12, "monthName": "December", "price": 1099 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1025 },
+          { "monthNumber": 2, "monthName": "February", "price": 1030 },
+          { "monthNumber": 3, "monthName": "March", "price": 1025 },
+          { "monthNumber": 4, "monthName": "April", "price": 1045 },
+          { "monthNumber": 5, "monthName": "May", "price": 1025 },
+          { "monthNumber": 6, "monthName": "June", "price": 1025 },
+          { "monthNumber": 7, "monthName": "July", "price": 1050 },
+          { "monthNumber": 8, "monthName": "August", "price": 1035 },
+          { "monthNumber": 9, "monthName": "September", "price": 1060 },
+          { "monthNumber": 10, "monthName": "October", "price": 1025 },
+          { "monthNumber": 11, "monthName": "November", "price": 1070 },
+          { "monthNumber": 12, "monthName": "December", "price": 1025 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1100 },
+          { "monthNumber": 2, "monthName": "February", "price": 1105 },
+          { "monthNumber": 3, "monthName": "March", "price": 1100 },
+          { "monthNumber": 4, "monthName": "April", "price": 1110 },
+          { "monthNumber": 5, "monthName": "May", "price": 1100 },
+          { "monthNumber": 6, "monthName": "June", "price": 1100 },
+          { "monthNumber": 7, "monthName": "July", "price": 1125 },
+          { "monthNumber": 8, "monthName": "August", "price": 1095 },
+          { "monthNumber": 9, "monthName": "September", "price": 1130 },
+          { "monthNumber": 10, "monthName": "October", "price": 1100 },
+          { "monthNumber": 11, "monthName": "November", "price": 1140 },
+          { "monthNumber": 12, "monthName": "December", "price": 1100 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1005 },
+          { "monthNumber": 2, "monthName": "February", "price": 1015 },
+          { "monthNumber": 3, "monthName": "March", "price": 1005 },
+          { "monthNumber": 4, "monthName": "April", "price": 1020 },
+          { "monthNumber": 5, "monthName": "May", "price": 1005 },
+          { "monthNumber": 6, "monthName": "June", "price": 1005 },
+          { "monthNumber": 7, "monthName": "July", "price": 1030 },
+          { "monthNumber": 8, "monthName": "August", "price": 1010 },
+          { "monthNumber": 9, "monthName": "September", "price": 1045 },
+          { "monthNumber": 10, "monthName": "October", "price": 1005 },
+          { "monthNumber": 11, "monthName": "November", "price": 1050 },
+          { "monthNumber": 12, "monthName": "December", "price": 1005 }
+        ]
+      },
+      {
+        "site": "Sam's Club",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1050 },
+          { "monthNumber": 2, "monthName": "February", "price": 1060 },
+          { "monthNumber": 3, "monthName": "March", "price": 1050 },
+          { "monthNumber": 4, "monthName": "April", "price": 1075 },
+          { "monthNumber": 5, "monthName": "May", "price": 1050 },
+          { "monthNumber": 6, "monthName": "June", "price": 1050 },
+          { "monthNumber": 7, "monthName": "July", "price": 1080 },
+          { "monthNumber": 8, "monthName": "August", "price": 1065 },
+          { "monthNumber": 9, "monthName": "September", "price": 1090 },
+          { "monthNumber": 10, "monthName": "October", "price": 1050 },
+          { "monthNumber": 11, "monthName": "November", "price": 1100 },
+          { "monthNumber": 12, "monthName": "December", "price": 1050 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1060 },
+          { "monthNumber": 2, "monthName": "February", "price": 1075 },
+          { "monthNumber": 3, "monthName": "March", "price": 1060 },
+          { "monthNumber": 4, "monthName": "April", "price": 1080 },
+          { "monthNumber": 5, "monthName": "May", "price": 1060 },
+          { "monthNumber": 6, "monthName": "June", "price": 1060 },
+          { "monthNumber": 7, "monthName": "July", "price": 1090 },
+          { "monthNumber": 8, "monthName": "August", "price": 1050 },
+          { "monthNumber": 9, "monthName": "September", "price": 1100 },
+          { "monthNumber": 10, "monthName": "October", "price": 1060 },
+          { "monthNumber": 11, "monthName": "November", "price": 1110 },
+          { "monthNumber": 12, "monthName": "December", "price": 1060 }
+        ]
+      }
     ],
     "information": "256GB - Color: Natural Titanium",
     "image": "/images/iphone-15-pro-max.jpg"
@@ -33,13 +257,125 @@
     "id": 3,
     "name": "Beats Studio Pro",
     "sites": [
-      { "site": "Amazon", "price": "200" },
-      { "site": "Walmart", "price": "220" },
-      { "site": "Target", "price": "235" },
-      { "site": "Newegg", "price": "250" },
-      { "site": "Costco", "price": "215" },
-      { "site": "Sam's Club", "price": "225" },
-      { "site": "Fry's Electronics", "price": "240" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 200 },
+          { "monthNumber": 2, "monthName": "February", "price": 190 },
+          { "monthNumber": 3, "monthName": "March", "price": 195 },
+          { "monthNumber": 4, "monthName": "April", "price": 210 },
+          { "monthNumber": 5, "monthName": "May", "price": 205 },
+          { "monthNumber": 6, "monthName": "June", "price": 200 },
+          { "monthNumber": 7, "monthName": "July", "price": 220 },
+          { "monthNumber": 8, "monthName": "August", "price": 215 },
+          { "monthNumber": 9, "monthName": "September", "price": 195 },
+          { "monthNumber": 10, "monthName": "October", "price": 200 },
+          { "monthNumber": 11, "monthName": "November", "price": 230 },
+          { "monthNumber": 12, "monthName": "December", "price": 220 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 220 },
+          { "monthNumber": 2, "monthName": "February", "price": 210 },
+          { "monthNumber": 3, "monthName": "March", "price": 215 },
+          { "monthNumber": 4, "monthName": "April", "price": 225 },
+          { "monthNumber": 5, "monthName": "May", "price": 220 },
+          { "monthNumber": 6, "monthName": "June", "price": 230 },
+          { "monthNumber": 7, "monthName": "July", "price": 235 },
+          { "monthNumber": 8, "monthName": "August", "price": 240 },
+          { "monthNumber": 9, "monthName": "September", "price": 230 },
+          { "monthNumber": 10, "monthName": "October", "price": 220 },
+          { "monthNumber": 11, "monthName": "November", "price": 250 },
+          { "monthNumber": 12, "monthName": "December", "price": 240 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 235 },
+          { "monthNumber": 2, "monthName": "February", "price": 240 },
+          { "monthNumber": 3, "monthName": "March", "price": 230 },
+          { "monthNumber": 4, "monthName": "April", "price": 245 },
+          { "monthNumber": 5, "monthName": "May", "price": 250 },
+          { "monthNumber": 6, "monthName": "June", "price": 240 },
+          { "monthNumber": 7, "monthName": "July", "price": 255 },
+          { "monthNumber": 8, "monthName": "August", "price": 260 },
+          { "monthNumber": 9, "monthName": "September", "price": 245 },
+          { "monthNumber": 10, "monthName": "October", "price": 235 },
+          { "monthNumber": 11, "monthName": "November", "price": 270 },
+          { "monthNumber": 12, "monthName": "December", "price": 260 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 250 },
+          { "monthNumber": 2, "monthName": "February", "price": 255 },
+          { "monthNumber": 3, "monthName": "March", "price": 245 },
+          { "monthNumber": 4, "monthName": "April", "price": 260 },
+          { "monthNumber": 5, "monthName": "May", "price": 250 },
+          { "monthNumber": 6, "monthName": "June", "price": 265 },
+          { "monthNumber": 7, "monthName": "July", "price": 270 },
+          { "monthNumber": 8, "monthName": "August", "price": 275 },
+          { "monthNumber": 9, "monthName": "September", "price": 260 },
+          { "monthNumber": 10, "monthName": "October", "price": 255 },
+          { "monthNumber": 11, "monthName": "November", "price": 280 },
+          { "monthNumber": 12, "monthName": "December", "price": 275 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 215 },
+          { "monthNumber": 2, "monthName": "February", "price": 210 },
+          { "monthNumber": 3, "monthName": "March", "price": 220 },
+          { "monthNumber": 4, "monthName": "April", "price": 230 },
+          { "monthNumber": 5, "monthName": "May", "price": 225 },
+          { "monthNumber": 6, "monthName": "June", "price": 235 },
+          { "monthNumber": 7, "monthName": "July", "price": 240 },
+          { "monthNumber": 8, "monthName": "August", "price": 245 },
+          { "monthNumber": 9, "monthName": "September", "price": 235 },
+          { "monthNumber": 10, "monthName": "October", "price": 230 },
+          { "monthNumber": 11, "monthName": "November", "price": 250 },
+          { "monthNumber": 12, "monthName": "December", "price": 245 }
+        ]
+      },
+      {
+        "site": "Sam's Club",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 225 },
+          { "monthNumber": 2, "monthName": "February", "price": 220 },
+          { "monthNumber": 3, "monthName": "March", "price": 230 },
+          { "monthNumber": 4, "monthName": "April", "price": 240 },
+          { "monthNumber": 5, "monthName": "May", "price": 235 },
+          { "monthNumber": 6, "monthName": "June", "price": 245 },
+          { "monthNumber": 7, "monthName": "July", "price": 250 },
+          { "monthNumber": 8, "monthName": "August", "price": 255 },
+          { "monthNumber": 9, "monthName": "September", "price": 245 },
+          { "monthNumber": 10, "monthName": "October", "price": 240 },
+          { "monthNumber": 11, "monthName": "November", "price": 260 },
+          { "monthNumber": 12, "monthName": "December", "price": 255 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 240 },
+          { "monthNumber": 2, "monthName": "February", "price": 245 },
+          { "monthNumber": 3, "monthName": "March", "price": 235 },
+          { "monthNumber": 4, "monthName": "April", "price": 250 },
+          { "monthNumber": 5, "monthName": "May", "price": 260 },
+          { "monthNumber": 6, "monthName": "June", "price": 255 },
+          { "monthNumber": 7, "monthName": "July", "price": 265 },
+          { "monthNumber": 8, "monthName": "August", "price": 270 },
+          { "monthNumber": 9, "monthName": "September", "price": 255 },
+          { "monthNumber": 10, "monthName": "October", "price": 250 },
+          { "monthNumber": 11, "monthName": "November", "price": 275 },
+          { "monthNumber": 12, "monthName": "December", "price": 270 }
+        ]
+      }
     ],
     "information": "Wireless Noise Cancelling Headphones",
     "image": "/images/beats-studio-pro.jpg"
@@ -48,28 +384,252 @@
     "id": 4,
     "name": "Samsung Galaxy S24 Ultra",
     "sites": [
-      { "site": "Amazon", "price": "1100" },
-      { "site": "Walmart", "price": "1120" },
-      { "site": "Target", "price": "1125" },
-      { "site": "Newegg", "price": "1120" },
-      { "site": "Costco", "price": "1117" },
-      { "site": "Sam's Club", "price": "1110" },
-      { "site": "Fry's Electronics", "price": "1130" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1100 },
+          { "monthNumber": 2, "monthName": "February", "price": 1120 },
+          { "monthNumber": 3, "monthName": "March", "price": 1090 },
+          { "monthNumber": 4, "monthName": "April", "price": 1115 },
+          { "monthNumber": 5, "monthName": "May", "price": 1105 },
+          { "monthNumber": 6, "monthName": "June", "price": 1085 },
+          { "monthNumber": 7, "monthName": "July", "price": 1110 },
+          { "monthNumber": 8, "monthName": "August", "price": 1130 },
+          { "monthNumber": 9, "monthName": "September", "price": 1100 },
+          { "monthNumber": 10, "monthName": "October", "price": 1095 },
+          { "monthNumber": 11, "monthName": "November", "price": 1125 },
+          { "monthNumber": 12, "monthName": "December", "price": 1110 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1120 },
+          { "monthNumber": 2, "monthName": "February", "price": 1140 },
+          { "monthNumber": 3, "monthName": "March", "price": 1115 },
+          { "monthNumber": 4, "monthName": "April", "price": 1135 },
+          { "monthNumber": 5, "monthName": "May", "price": 1120 },
+          { "monthNumber": 6, "monthName": "June", "price": 1110 },
+          { "monthNumber": 7, "monthName": "July", "price": 1150 },
+          { "monthNumber": 8, "monthName": "August", "price": 1130 },
+          { "monthNumber": 9, "monthName": "September", "price": 1115 },
+          { "monthNumber": 10, "monthName": "October", "price": 1145 },
+          { "monthNumber": 11, "monthName": "November", "price": 1160 },
+          { "monthNumber": 12, "monthName": "December", "price": 1130 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1125 },
+          { "monthNumber": 2, "monthName": "February", "price": 1145 },
+          { "monthNumber": 3, "monthName": "March", "price": 1120 },
+          { "monthNumber": 4, "monthName": "April", "price": 1130 },
+          { "monthNumber": 5, "monthName": "May", "price": 1140 },
+          { "monthNumber": 6, "monthName": "June", "price": 1125 },
+          { "monthNumber": 7, "monthName": "July", "price": 1155 },
+          { "monthNumber": 8, "monthName": "August", "price": 1165 },
+          { "monthNumber": 9, "monthName": "September", "price": 1145 },
+          { "monthNumber": 10, "monthName": "October", "price": 1135 },
+          { "monthNumber": 11, "monthName": "November", "price": 1160 },
+          { "monthNumber": 12, "monthName": "December", "price": 1150 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1120 },
+          { "monthNumber": 2, "monthName": "February", "price": 1110 },
+          { "monthNumber": 3, "monthName": "March", "price": 1130 },
+          { "monthNumber": 4, "monthName": "April", "price": 1125 },
+          { "monthNumber": 5, "monthName": "May", "price": 1140 },
+          { "monthNumber": 6, "monthName": "June", "price": 1115 },
+          { "monthNumber": 7, "monthName": "July", "price": 1125 },
+          { "monthNumber": 8, "monthName": "August", "price": 1135 },
+          { "monthNumber": 9, "monthName": "September", "price": 1105 },
+          { "monthNumber": 10, "monthName": "October", "price": 1130 },
+          { "monthNumber": 11, "monthName": "November", "price": 1120 },
+          { "monthNumber": 12, "monthName": "December", "price": 1140 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1117 },
+          { "monthNumber": 2, "monthName": "February", "price": 1125 },
+          { "monthNumber": 3, "monthName": "March", "price": 1105 },
+          { "monthNumber": 4, "monthName": "April", "price": 1130 },
+          { "monthNumber": 5, "monthName": "May", "price": 1110 },
+          { "monthNumber": 6, "monthName": "June", "price": 1140 },
+          { "monthNumber": 7, "monthName": "July", "price": 1125 },
+          { "monthNumber": 8, "monthName": "August", "price": 1135 },
+          { "monthNumber": 9, "monthName": "September", "price": 1140 },
+          { "monthNumber": 10, "monthName": "October", "price": 1120 },
+          { "monthNumber": 11, "monthName": "November", "price": 1150 },
+          { "monthNumber": 12, "monthName": "December", "price": 1135 }
+        ]
+      },
+      {
+        "site": "Sam's Club",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1110 },
+          { "monthNumber": 2, "monthName": "February", "price": 1120 },
+          { "monthNumber": 3, "monthName": "March", "price": 1105 },
+          { "monthNumber": 4, "monthName": "April", "price": 1115 },
+          { "monthNumber": 5, "monthName": "May", "price": 1130 },
+          { "monthNumber": 6, "monthName": "June", "price": 1125 },
+          { "monthNumber": 7, "monthName": "July", "price": 1135 },
+          { "monthNumber": 8, "monthName": "August", "price": 1145 },
+          { "monthNumber": 9, "monthName": "September", "price": 1130 },
+          { "monthNumber": 10, "monthName": "October", "price": 1120 },
+          { "monthNumber": 11, "monthName": "November", "price": 1140 },
+          { "monthNumber": 12, "monthName": "December", "price": 1130 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 1130 },
+          { "monthNumber": 2, "monthName": "February", "price": 1125 },
+          { "monthNumber": 3, "monthName": "March", "price": 1140 },
+          { "monthNumber": 4, "monthName": "April", "price": 1130 },
+          { "monthNumber": 5, "monthName": "May", "price": 1150 },
+          { "monthNumber": 6, "monthName": "June", "price": 1135 },
+          { "monthNumber": 7, "monthName": "July", "price": 1145 },
+          { "monthNumber": 8, "monthName": "August", "price": 1155 },
+          { "monthNumber": 9, "monthName": "September", "price": 1130 },
+          { "monthNumber": 10, "monthName": "October", "price": 1140 },
+          { "monthNumber": 11, "monthName": "November", "price": 1150 },
+          { "monthNumber": 12, "monthName": "December", "price": 1135 }
+        ]
+      }
     ],
     "information": "512GB, Android, 200MP 100x zoom",
     "image": "/images/samsung-s24.jpg"
   },
-  {
+{
     "id": 5,
-    "name": "Sony Alphta 7 IV",
+    "name": "Sony Alpha 7 IV",
     "sites": [
-      { "site": "Amazon", "price": "2350" },
-      { "site": "Walmart", "price": "2370" },
-      { "site": "Target", "price": "2380" },
-      { "site": "Newegg", "price": "2370" },
-      { "site": "Costco", "price": "2390" },
-      { "site": "Sam's Club", "price": "2370" },
-      { "site": "Fry's Electronics", "price": "2400" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2350 },
+          { "monthNumber": 2, "monthName": "February", "price": 2400 },
+          { "monthNumber": 3, "monthName": "March", "price": 2350 },
+          { "monthNumber": 4, "monthName": "April", "price": 2450 },
+          { "monthNumber": 5, "monthName": "May", "price": 2350 },
+          { "monthNumber": 6, "monthName": "June", "price": 2350 },
+          { "monthNumber": 7, "monthName": "July", "price": 2500 },
+          { "monthNumber": 8, "monthName": "August", "price": 2300 },
+          { "monthNumber": 9, "monthName": "September", "price": 2350 },
+          { "monthNumber": 10, "monthName": "October", "price": 2550 },
+          { "monthNumber": 11, "monthName": "November", "price": 2350 },
+          { "monthNumber": 12, "monthName": "December", "price": 2350 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2370 },
+          { "monthNumber": 2, "monthName": "February", "price": 2420 },
+          { "monthNumber": 3, "monthName": "March", "price": 2370 },
+          { "monthNumber": 4, "monthName": "April", "price": 2470 },
+          { "monthNumber": 5, "monthName": "May", "price": 2370 },
+          { "monthNumber": 6, "monthName": "June", "price": 2370 },
+          { "monthNumber": 7, "monthName": "July", "price": 2520 },
+          { "monthNumber": 8, "monthName": "August", "price": 2320 },
+          { "monthNumber": 9, "monthName": "September", "price": 2370 },
+          { "monthNumber": 10, "monthName": "October", "price": 2570 },
+          { "monthNumber": 11, "monthName": "November", "price": 2370 },
+          { "monthNumber": 12, "monthName": "December", "price": 2370 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2380 },
+          { "monthNumber": 2, "monthName": "February", "price": 2430 },
+          { "monthNumber": 3, "monthName": "March", "price": 2380 },
+          { "monthNumber": 4, "monthName": "April", "price": 2480 },
+          { "monthNumber": 5, "monthName": "May", "price": 2380 },
+          { "monthNumber": 6, "monthName": "June", "price": 2380 },
+          { "monthNumber": 7, "monthName": "July", "price": 2530 },
+          { "monthNumber": 8, "monthName": "August", "price": 2330 },
+          { "monthNumber": 9, "monthName": "September", "price": 2380 },
+          { "monthNumber": 10, "monthName": "October", "price": 2580 },
+          { "monthNumber": 11, "monthName": "November", "price": 2380 },
+          { "monthNumber": 12, "monthName": "December", "price": 2380 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2370 },
+          { "monthNumber": 2, "monthName": "February", "price": 2420 },
+          { "monthNumber": 3, "monthName": "March", "price": 2370 },
+          { "monthNumber": 4, "monthName": "April", "price": 2470 },
+          { "monthNumber": 5, "monthName": "May", "price": 2370 },
+          { "monthNumber": 6, "monthName": "June", "price": 2370 },
+          { "monthNumber": 7, "monthName": "July", "price": 2520 },
+          { "monthNumber": 8, "monthName": "August", "price": 2320 },
+          { "monthNumber": 9, "monthName": "September", "price": 2370 },
+          { "monthNumber": 10, "monthName": "October", "price": 2570 },
+          { "monthNumber": 11, "monthName": "November", "price": 2370 },
+          { "monthNumber": 12, "monthName": "December", "price": 2370 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2390 },
+          { "monthNumber": 2, "monthName": "February", "price": 2440 },
+          { "monthNumber": 3, "monthName": "March", "price": 2390 },
+          { "monthNumber": 4, "monthName": "April", "price": 2490 },
+          { "monthNumber": 5, "monthName": "May", "price": 2390 },
+          { "monthNumber": 6, "monthName": "June", "price": 2390 },
+          { "monthNumber": 7, "monthName": "July", "price": 2540 },
+          { "monthNumber": 8, "monthName": "August", "price": 2340 },
+          { "monthNumber": 9, "monthName": "September", "price": 2390 },
+          { "monthNumber": 10, "monthName": "October", "price": 2590 },
+          { "monthNumber": 11, "monthName": "November", "price": 2390 },
+          { "monthNumber": 12, "monthName": "December", "price": 2390 }
+        ]
+      },
+      {
+        "site": "Sam's Club",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2370 },
+          { "monthNumber": 2, "monthName": "February", "price": 2420 },
+          { "monthNumber": 3, "monthName": "March", "price": 2370 },
+          { "monthNumber": 4, "monthName": "April", "price": 2470 },
+          { "monthNumber": 5, "monthName": "May", "price": 2370 },
+          { "monthNumber": 6, "monthName": "June", "price": 2370 },
+          { "monthNumber": 7, "monthName": "July", "price": 2520 },
+          { "monthNumber": 8, "monthName": "August", "price": 2320 },
+          { "monthNumber": 9, "monthName": "September", "price": 2370 },
+          { "monthNumber": 10, "monthName": "October", "price": 2570 },
+          { "monthNumber": 11, "monthName": "November", "price": 2370 },
+          { "monthNumber": 12, "monthName": "December", "price": 2370 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 2400 },
+          { "monthNumber": 2, "monthName": "February", "price": 2450 },
+          { "monthNumber": 3, "monthName": "March", "price": 2400 },
+          { "monthNumber": 4, "monthName": "April", "price": 2500 },
+          { "monthNumber": 5, "monthName": "May", "price": 2400 },
+          { "monthNumber": 6, "monthName": "June", "price": 2400 },
+          { "monthNumber": 7, "monthName": "July", "price": 2550 },
+          { "monthNumber": 8, "monthName": "August", "price": 2350 },
+          { "monthNumber": 9, "monthName": "September", "price": 2400 },
+          { "monthNumber": 10, "monthName": "October", "price": 2600 },
+          { "monthNumber": 11, "monthName": "November", "price": 2400 },
+          { "monthNumber": 12, "monthName": "December", "price": 2400 }
+        ]
+      }
     ],
     "information": "Full-frame, Mirrorless, Body Only",
     "image": "/images/sony-alpha-7.jpg"
@@ -78,15 +638,127 @@
     "id": 6,
     "name": "Ray-Ban Meta",
     "sites": [
-      { "site": "Amazon", "price": "299" },
-      { "site": "Walmart", "price": "300" },
-      { "site": "Target", "price": "305" },
-      { "site": "Newegg", "price": "299" },
-      { "site": "Costco", "price": "300" },
-      { "site": "Sam's Club", "price": "310" },
-      { "site": "Fry's Electronics", "price": "300" }
+      {
+        "site": "Amazon",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 299 },
+          { "monthNumber": 2, "monthName": "February", "price": 305 },
+          { "monthNumber": 3, "monthName": "March", "price": 299 },
+          { "monthNumber": 4, "monthName": "April", "price": 310 },
+          { "monthNumber": 5, "monthName": "May", "price": 299 },
+          { "monthNumber": 6, "monthName": "June", "price": 299 },
+          { "monthNumber": 7, "monthName": "July", "price": 320 },
+          { "monthNumber": 8, "monthName": "August", "price": 295 },
+          { "monthNumber": 9, "monthName": "September", "price": 299 },
+          { "monthNumber": 10, "monthName": "October", "price": 330 },
+          { "monthNumber": 11, "monthName": "November", "price": 299 },
+          { "monthNumber": 12, "monthName": "December", "price": 299 }
+        ]
+      },
+      {
+        "site": "Walmart",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 300 },
+          { "monthNumber": 2, "monthName": "February", "price": 310 },
+          { "monthNumber": 3, "monthName": "March", "price": 300 },
+          { "monthNumber": 4, "monthName": "April", "price": 315 },
+          { "monthNumber": 5, "monthName": "May", "price": 300 },
+          { "monthNumber": 6, "monthName": "June", "price": 300 },
+          { "monthNumber": 7, "monthName": "July", "price": 325 },
+          { "monthNumber": 8, "monthName": "August", "price": 295 },
+          { "monthNumber": 9, "monthName": "September", "price": 300 },
+          { "monthNumber": 10, "monthName": "October", "price": 340 },
+          { "monthNumber": 11, "monthName": "November", "price": 300 },
+          { "monthNumber": 12, "monthName": "December", "price": 300 }
+        ]
+      },
+      {
+        "site": "Target",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 305 },
+          { "monthNumber": 2, "monthName": "February", "price": 315 },
+          { "monthNumber": 3, "monthName": "March", "price": 305 },
+          { "monthNumber": 4, "monthName": "April", "price": 320 },
+          { "monthNumber": 5, "monthName": "May", "price": 305 },
+          { "monthNumber": 6, "monthName": "June", "price": 305 },
+          { "monthNumber": 7, "monthName": "July", "price": 330 },
+          { "monthNumber": 8, "monthName": "August", "price": 300 },
+          { "monthNumber": 9, "monthName": "September", "price": 305 },
+          { "monthNumber": 10, "monthName": "October", "price": 345 },
+          { "monthNumber": 11, "monthName": "November", "price": 305 },
+          { "monthNumber": 12, "monthName": "December", "price": 305 }
+        ]
+      },
+      {
+        "site": "Newegg",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 299 },
+          { "monthNumber": 2, "monthName": "February", "price": 305 },
+          { "monthNumber": 3, "monthName": "March", "price": 299 },
+          { "monthNumber": 4, "monthName": "April", "price": 310 },
+          { "monthNumber": 5, "monthName": "May", "price": 299 },
+          { "monthNumber": 6, "monthName": "June", "price": 299 },
+          { "monthNumber": 7, "monthName": "July", "price": 320 },
+          { "monthNumber": 8, "monthName": "August", "price": 295 },
+          { "monthNumber": 9, "monthName": "September", "price": 299 },
+          { "monthNumber": 10, "monthName": "October", "price": 330 },
+          { "monthNumber": 11, "monthName": "November", "price": 299 },
+          { "monthNumber": 12, "monthName": "December", "price": 299 }
+        ]
+      },
+      {
+        "site": "Costco",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 300 },
+          { "monthNumber": 2, "monthName": "February", "price": 310 },
+          { "monthNumber": 3, "monthName": "March", "price": 300 },
+          { "monthNumber": 4, "monthName": "April", "price": 315 },
+          { "monthNumber": 5, "monthName": "May", "price": 300 },
+          { "monthNumber": 6, "monthName": "June", "price": 300 },
+          { "monthNumber": 7, "monthName": "July", "price": 325 },
+          { "monthNumber": 8, "monthName": "August", "price": 295 },
+          { "monthNumber": 9, "monthName": "September", "price": 300 },
+          { "monthNumber": 10, "monthName": "October", "price": 340 },
+          { "monthNumber": 11, "monthName": "November", "price": 300 },
+          { "monthNumber": 12, "monthName": "December", "price": 300 }
+        ]
+      },
+      {
+        "site": "Sam's Club",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 310 },
+          { "monthNumber": 2, "monthName": "February", "price": 320 },
+          { "monthNumber": 3, "monthName": "March", "price": 310 },
+          { "monthNumber": 4, "monthName": "April", "price": 325 },
+          { "monthNumber": 5, "monthName": "May", "price": 310 },
+          { "monthNumber": 6, "monthName": "June", "price": 310 },
+          { "monthNumber": 7, "monthName": "July", "price": 335 },
+          { "monthNumber": 8, "monthName": "August", "price": 305 },
+          { "monthNumber": 9, "monthName": "September", "price": 310 },
+          { "monthNumber": 10, "monthName": "October", "price": 350 },
+          { "monthNumber": 11, "monthName": "November", "price": 310 },
+          { "monthNumber": 12, "monthName": "December", "price": 310 }
+        ]
+      },
+      {
+        "site": "Fry's Electronics",
+        "monthlyPrices": [
+          { "monthNumber": 1, "monthName": "January", "price": 300 },
+          { "monthNumber": 2, "monthName": "February", "price": 310 },
+          { "monthNumber": 3, "monthName": "March", "price": 300 },
+          { "monthNumber": 4, "monthName": "April", "price": 315 },
+          { "monthNumber": 5, "monthName": "May", "price": 300 },
+          { "monthNumber": 6, "monthName": "June", "price": 300 },
+          { "monthNumber": 7, "monthName": "July", "price": 325 },
+          { "monthNumber": 8, "monthName": "August", "price": 295 },
+          { "monthNumber": 9, "monthName": "September", "price": 300 },
+          { "monthNumber": 10, "monthName": "October", "price": 340 },
+          { "monthNumber": 11, "monthName": "November", "price": 300 },
+          { "monthNumber": 12, "monthName": "December", "price": 300 }
+        ]
+      }
     ],
     "information": "Wayfarer Smart Glasses with Metal AI",
     "image": "/images/ray-ban-meta.jpg"
-  } 
+  }
 ]

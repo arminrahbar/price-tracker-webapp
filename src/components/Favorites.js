@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../contexts/ProductsContext";
 import Layout from "./Layout";
@@ -6,7 +6,7 @@ import SearchFilterSidebar from "./SearchFilterSidebar"; // Import the reusable 
 import "./Home.css";
 
 const Favorites = () => {
-  const { collections, setCollections } = useProducts();
+  const { collections, setCollections, updateBreadcrumbs } = useProducts();
   const navigate = useNavigate();
   const [showCreateCollectionModal, setShowCreateCollectionModal] =
     useState(false);
@@ -20,6 +20,11 @@ const Favorites = () => {
 
   const allItemsCollection =
     collections.find((c) => c.name === "All Items")?.items || [];
+
+  // Set breadcrumbs for the Favorites page
+  useEffect(() => {
+    updateBreadcrumbs([{ name: "Home", path: "/" }, { name: "Favorites", path: "/favorites" }]);
+  }, [updateBreadcrumbs]);
 
   // Filter items based on search query and price filter
   const filteredItems = allItemsCollection.filter((item) => {

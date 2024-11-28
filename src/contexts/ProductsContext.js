@@ -8,8 +8,12 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]); // Full list of products
   const [searchQuery, setSearchQuery] = useState(""); // Current search query
   const [filteredProducts, setFilteredProducts] = useState([]); // Displayed products
+  const [breadcrumbs, setBreadcrumbs] = useState([{ name: "Home", path: "/" }]);
 
-  const [priceFilter, setPriceFilter] = useState({ minPrice: null, maxPrice: null }); // Price filter state
+  const [priceFilter, setPriceFilter] = useState({
+    minPrice: null,
+    maxPrice: null,
+  }); // Price filter state
 
   // Fetch products on mount
   useEffect(() => {
@@ -50,6 +54,51 @@ export const ProductsProvider = ({ children }) => {
 
     setFilteredProducts(updatedProducts);
   }, [products, searchQuery, priceFilter]);
+
+
+  // Function to update breadcrumbs
+  const updateBreadcrumbs = (crumbs) => {
+    setBreadcrumbs(crumbs);
+  };
+
+
+    // Function to get price data for all months for each vendor of a product
+    const getVendorPriceData = (sites) => {
+      return sites.map((site) => ({
+        vendor: site.site,
+        prices: site.monthlyPrices.map((priceEntry) => ({
+          month: priceEntry.monthName,
+          price: priceEntry.price,
+        })),
+      }));
+    };
+
+  
+  // Utility function to find the lowest price for the current month
+  const getLowestPriceForCurrentMonth = (sites) => {
+    const currentMonthNumber = new Date().getMonth() + 1; // December = 12
+    let lowestPrice = Infinity;
+
+    sites.forEach((site) => {
+      const priceForCurrentMonth = site.monthlyPrices.find(
+        (priceEntry) => priceEntry.monthNumber === currentMonthNumber
+      );
+      if (priceForCurrentMonth && priceForCurrentMonth.price < lowestPrice) {
+        lowestPrice = priceForCurrentMonth.price;
+      }
+    });
+
+    return lowestPrice === Infinity ? null : lowestPrice; // Return null if no prices available
+  };
+
+
+  const getCurrentMonthPriceForVendor = (site) => {
+    const currentMonthNumber = new Date().getMonth() + 1; // Current month (1-based index)
+    const priceForCurrentMonth = site.monthlyPrices.find(
+      (priceEntry) => priceEntry.monthNumber === currentMonthNumber
+    );
+    return priceForCurrentMonth ? priceForCurrentMonth.price : null; // Return null if no price is found
+  };
 
   // Function to handle the price filter
   const filterProductsByPrice = (minPrice, maxPrice) => {
@@ -183,6 +232,11 @@ export const ProductsProvider = ({ children }) => {
         createCollection,
         addToCollection,
         removeFromCollection,
+        getLowestPriceForCurrentMonth,
+        getCurrentMonthPriceForVendor,
+        getVendorPriceData,
+        breadcrumbs,
+        updateBreadcrumbs // Expose the utility function
       }}
     >
       {children}

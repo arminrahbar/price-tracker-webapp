@@ -1,38 +1,100 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import './Home.css'; // Make sure this is the correct path to your Home.css
-import { useProducts } from '../contexts/ProductsContext';
-import Layout from './Layout'; // Import Layout component
+import { useEffect, useState, useMemo } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import "./Home.css"; // Ensure the path is correct
+import { useProducts } from "../contexts/ProductsContext";
+import Layout from "./Layout"; // Import Layout component
+import { Line } from "react-chartjs-2"; // Import Line chart
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 function ProductDetails() {
   const { id } = useParams();
-  const { products, setProducts } = useProducts();
+  const location = useLocation();
+  const {
+    products,
+    setProducts,
+    getCurrentMonthPriceForVendor,
+    getVendorPriceData,
+    updateBreadcrumbs,
+  } = useProducts();
   const [product, setProduct] = useState(null);
-  const [isFirstVisit, setIsFirstVisit] = useState(false); // Track if this is the first visit
+  const [chartData, setChartData] = useState(null);
 
+  // Predefined distinct colors for the chart
+  const colorPalette = [
+    "#B33F24", "#249E3A", "#243A9E", "#9E2471",
+    "#249E9E", "#9E9E24", "#6F249E", "#9E5A24",
+    "#24719E", "#5A249E",
+  ];
+
+  // Fetch product data
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === parseInt(id));
     if (foundProduct) {
-      if (foundProduct.id === products[0]?.id) {
-        const visitFlag = localStorage.getItem('firstProductVisited');
-        const visibleFlag = localStorage.getItem('firstProductVisible');
-
-        if (!visitFlag) {
-          setIsFirstVisit(true);
-          localStorage.setItem('firstProductVisited', 'true');
-          localStorage.setItem('firstProductVisible', 'true');
-        } else {
-          setIsFirstVisit(visibleFlag === 'true'); // Restore visibility state based on `firstProductVisible`
-        }
-      }
-
+      // Initialize product data
       if (!foundProduct.selectedSites) {
         foundProduct.selectedSites = [foundProduct.sites[0]];
-        setProducts(products.map((p) => (p.id === foundProduct.id ? foundProduct : p)));
+        setProducts(
+          products.map((p) => (p.id === foundProduct.id ? foundProduct : p))
+        );
       }
       setProduct(foundProduct);
+
+      // Prepare chart data
+      const vendorData = getVendorPriceData(foundProduct.sites);
+      setChartData({
+        labels: vendorData[0]?.prices.map((price) => price.month), // Months as labels
+        datasets: vendorData.map((vendor, index) => ({
+          label: vendor.vendor, // Vendor name as dataset label
+          data: vendor.prices.map((price) => price.price), // Prices as data
+          fill: false,
+          borderColor: colorPalette[index % colorPalette.length], // Predefined color
+          tension: 0.3,
+        })),
+      });
     }
-  }, [products, id, setProducts]);
+  }, [products, id, setProducts, getVendorPriceData]);
+
+  // Update breadcrumbs after the product is set
+  useEffect(() => {
+    if (!product) return;
+
+    const from = location.state?.from || "Home";
+    const collectionName = location.state?.collectionName || null;
+
+    if (from === "Favorites" && collectionName) {
+      updateBreadcrumbs([
+        { name: "Home", path: "/" },
+        { name: "Favorites", path: "/favorites" },
+        { name: collectionName, path: `/collections/${collectionName}` },
+        { name: product.name, path: `/product/${id}` },
+      ]);
+    } else {
+      updateBreadcrumbs([
+        { name: "Home", path: "/" },
+        { name: product.name, path: `/product/${id}` },
+      ]);
+    }
+  }, [product, location.state, updateBreadcrumbs, id]);
 
   return (
     <Layout>
@@ -41,8 +103,9 @@ function ProductDetails() {
           <p>Loading or Product not found...</p>
         ) : (
           <>
-            <h2>{product.name}</h2>
-
+            <div className="second-header">
+              <h2>{product.name}</h2>
+            </div>
             {/* Display product image below the product name */}
             <div className="image-container">
               <img
@@ -55,26 +118,52 @@ function ProductDetails() {
             {/* Display product information under the product image */}
             <p>{product.information}</p>
 
-            {/* Display a message when no vendors are currently tracked */}
-            {product.sites && product.sites.length === 0 && (
-              <p>No vendors currently tracked for this product.</p>
-            )}
-
-            {/* Render the sites for the current product */}
-            {product.sites && product.sites.length > 0 && product.sites.map((site, index) => (
-              <div className="item" key={index}>
-                {isFirstVisit && index === 0 && product.id === products[0]?.id ? (
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ color: 'red', textDecoration: 'line-through' }}>
-                      Amazon: $3550
-                    </span>
-                    <div style={{ color: 'green' }}>{`${site.site}: $${site.price}`}</div>
+            {/* Display vendor prices */}
+            {product.sites &&
+              product.sites.length > 0 &&
+              product.sites.map((site, index) => {
+                const currentMonthPrice = getCurrentMonthPriceForVendor(site);
+                return (
+                  <div className="item" key={index}>
+                    <label>
+                      {`${site.site}: `}
+                      <span style={{ color: "#1b5da8", fontWeight: "bold" }}>
+                        ${currentMonthPrice || "N/A"}
+                      </span>
+                    </label>
                   </div>
-                ) : (
-                  <label>{`${site.site}: $${site.price}`}</label>
-                )}
+                );
+              })}
+
+            {/* Render the chart if data is available */}
+            {chartData && (
+              <div style={{ marginTop: "25px", position: "center" }}>
+                <Line
+                  data={chartData}
+                  options={{
+                    responsive: true,
+                    animation: false, // Fully disable animations
+                    plugins: {
+                      legend: {
+                        position: "top",
+                        labels: {
+                          font: {
+                            size: 14,
+                          },
+                        },
+                      },
+                      title: {
+                        display: true,
+                        text: "Price Trends",
+                        font: {
+                          size: 18,
+                        },
+                      },
+                    },
+                  }}
+                />
               </div>
-            ))}
+            )}
           </>
         )}
       </div>

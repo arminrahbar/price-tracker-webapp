@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useProducts } from "../contexts/ProductsContext"; // Import ProductsContext
 import "./Home.css"; // Import your main CSS file for styling
 import SearchFilterSidebar from "./SearchFilterSidebar";
 
@@ -14,46 +15,6 @@ const pathNameMap = {
   // Add other paths as needed
 };
 
-const Breadcrumb = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const pathnames = location.pathname.split("/").filter((x) => x);
-
-  const handleBreadcrumbClick = (name, routeTo) => {
-    if (name === "collections") {
-      navigate("/favorites");
-    } else {
-      navigate(routeTo);
-    }
-  };
-
-  return (
-    <div className="breadcrumb">
-      <span onClick={() => navigate("/")} className="breadcrumb-link">
-        Home
-      </span>
-      {pathnames.map((name, index) => {
-        const displayName =
-          name === "collections" ? "Favorites" : pathNameMap[name] || name;
-        const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-        const isLast = index === pathnames.length - 1;
-
-        return (
-          <span key={name}>
-            <span
-              onClick={() => !isLast && handleBreadcrumbClick(name, routeTo)}
-              className={isLast ? "breadcrumb-current" : "breadcrumb-link"}
-            >
-              {displayName}
-            </span>
-          </span>
-        );
-      })}
-    </div>
-  );
-};
-
-// Layout Component
 const Layout = ({
   children,
   showSearch,
@@ -62,6 +23,7 @@ const Layout = ({
   searchValue,
 }) => {
   const [showHelpDropdown, setShowHelpDropdown] = useState(false);
+  const { breadcrumbs, updateBreadcrumbs } = useProducts(); // Use ProductsContext
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -70,6 +32,26 @@ const Layout = ({
   };
 
   const isActive = (path) => location.pathname === path;
+
+  // Breadcrumb display logic
+  const renderBreadcrumbs = () => {
+    return (
+      <div className="breadcrumb">
+        {breadcrumbs.map((crumb, index) => {
+          const isLast = index === breadcrumbs.length - 1;
+          return (
+            <span key={index} className={isLast ? "breadcrumb-current" : "breadcrumb-link"}>
+              <span
+                onClick={() => !isLast && navigate(crumb.path)}
+              >
+                {crumb.name}
+              </span>
+            </span>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <div className="layout-container">
@@ -156,8 +138,8 @@ const Layout = ({
         </div>
       </header>
 
-      {/* Breadcrumb component */}
-      <Breadcrumb />
+      {/* Breadcrumbs */}
+      {renderBreadcrumbs()}
 
       {/* Search Filter Sidebar */}
       {showSearch && searchValue && (

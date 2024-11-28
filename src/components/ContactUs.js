@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css"; // Use the existing CSS
 import Layout from "./Layout"; // Import the common layout
 import { useNavigate } from "react-router-dom";
+import { useProducts } from "../contexts/ProductsContext"; // Import breadcrumb context
 
 function ContactUs() {
   // State to handle form inputs
@@ -14,8 +15,19 @@ function ContactUs() {
   // State for showing success or error messages
   const [statusMessage, setStatusMessage] = useState("");
 
+  // Access breadcrumb update function from context
+  const { updateBreadcrumbs } = useProducts();
+
   // Navigate hook to redirect to other pages
   const navigate = useNavigate();
+
+  // Set breadcrumbs for ContactUs page
+  useEffect(() => {
+    updateBreadcrumbs([
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact-us" },
+    ]);
+  }, [updateBreadcrumbs]);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -48,8 +60,8 @@ function ContactUs() {
         <div className="second-header">
           <h2>Contact Page</h2>
         </div>
-        </div>
-        <div className="contact-container">
+      </div>
+      <div className="contact-container">
         <form className="contact-form" onSubmit={handleSubmit}>
           {/* Name Input */}
           <div className="form-group">
@@ -107,14 +119,25 @@ function ContactUs() {
 
           {/* Buttons Container with Flexbox */}
           <div className="button-group">
-          <button type="submit" className="btn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-    <path d="M22 2L11 13"></path>
-    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-    <circle cx="11" cy="13" r="1" fill="currentColor"></circle>
-  </svg>
-  Send Message
-</button>
+            <button type="submit" className="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon"
+              >
+                <path d="M22 2L11 13"></path>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                <circle cx="11" cy="13" r="1" fill="currentColor"></circle>
+              </svg>
+              Send Message
+            </button>
           </div>
         </form>
       </div>

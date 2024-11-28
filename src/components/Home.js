@@ -17,6 +17,8 @@ function Home() {
     selectedCollections,
     collections,
     createCollection,
+    getLowestPriceForCurrentMonth,
+    updateBreadcrumbs, // Function to update breadcrumbs
   } = useProducts();
 
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ function Home() {
 
   const [showTooltip, setShowTooltip] = useState(false);
   const [showCollectionModal, setShowCollectionModal] = useState(false);
-  const [showRemoveModal, setShowRemoveModal] = useState(false); // State for the remove confirmation modal
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showHeartTooltip, setShowHeartTooltip] = useState(null);
   const [showUndoButton, setShowUndoButton] = useState(false);
@@ -49,7 +51,10 @@ function Home() {
     if (products.length === 0) {
       fetchProducts();
     }
-  }, [products.length, setProducts]);
+
+    // Initialize breadcrumbs for the home page
+    updateBreadcrumbs([{ name: "Home", path: "/" }]);
+  }, [products.length, setProducts, updateBreadcrumbs]);
 
   const handleCreateCollection = (newCollectionName) => {
     createCollection(newCollectionName);
@@ -58,7 +63,7 @@ function Home() {
   const handleFavoriteToggle = (product) => {
     if (favorites.has(product.id)) {
       setSelectedProduct(product);
-      setShowRemoveModal(true); // Show the confirmation modal
+      setShowRemoveModal(true);
     } else {
       setSelectedProduct(product);
       setShowCollectionModal(true);
@@ -66,14 +71,12 @@ function Home() {
   };
 
   const confirmRemoveFromFavorites = () => {
-    // Identify the collections the selected product belongs to
     const productCollections = collections
       .filter((collection) =>
         collection.items.some((item) => item.id === selectedProduct.id)
       )
       .map((collection) => collection.name);
 
-    // Remove the product from the favorites
     setFavorites((prev) => {
       const newFavorites = new Set(prev);
       newFavorites.delete(selectedProduct.id);
@@ -81,7 +84,6 @@ function Home() {
       return newFavorites;
     });
 
-    // Remove the product from all collections
     setCollections((prevCollections) =>
       prevCollections.map((collection) => ({
         ...collection,
@@ -91,26 +93,22 @@ function Home() {
       }))
     );
 
-    // Store removed collections and product for Undo functionality
-    setRemovedCollections(productCollections); // Store the collection names
-    setRemovedProduct(selectedProduct); // Store the removed product
-    setShowUndoButton(true); // Show Undo button
+    setRemovedCollections(productCollections);
+    setRemovedProduct(selectedProduct);
+    setShowUndoButton(true);
 
-    // Hide Undo button after 5 seconds
     setTimeout(() => {
       setShowUndoButton(false);
-      setRemovedProduct(null); // Clear the removed product
-      setRemovedCollections([]); // Clear the collection names
+      setRemovedProduct(null);
+      setRemovedCollections([]);
     }, 5000);
 
-    // Close the confirmation modal and reset selected product
     setShowRemoveModal(false);
     setSelectedProduct(null);
   };
 
   const handleUndo = () => {
     if (removedProduct) {
-      // Restore product to specific collections
       setCollections((prevCollections) =>
         prevCollections.map((collection) => {
           if (removedCollections.includes(collection.name)) {
@@ -123,7 +121,6 @@ function Home() {
         })
       );
 
-      // Restore product to favorites
       setFavorites((prev) => {
         const newFavorites = new Set(prev);
         newFavorites.add(removedProduct.id);
@@ -131,7 +128,6 @@ function Home() {
         return newFavorites;
       });
 
-      // Clear Undo state
       setShowUndoButton(false);
       setRemovedProduct(null);
       setRemovedCollections([]);
@@ -151,23 +147,29 @@ function Home() {
     setShowCollectionModal(false);
   };
 
-  const handleViewDetails = (id) => {
-    navigate(`/product/${id}`);
+  const handleViewDetails = (id, name) => {
+    // Reset breadcrumbs for the product view
+    updateBreadcrumbs([
+      { name: "Home", path: "/" },
+      { name: name, path: `/product/${id}` },
+    ]);
+  
+    // Navigate to the product details page
+    navigate(`/product/${id}`, { state: { from: "Home", productName: name } });
   };
-
   const filterProducts = () => {
     return products.filter((product) => {
       const matchesSearch = searchQuery
         ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
         : true;
 
+      const lowestPrice = getLowestPriceForCurrentMonth(product.sites);
+
       const matchesPrice =
         priceFilter.minPrice !== null && priceFilter.maxPrice !== null
-          ? product.sites.some(
-              (site) =>
-                Number(site.price) >= Number(priceFilter.minPrice) &&
-                Number(site.price) <= Number(priceFilter.maxPrice)
-            )
+          ? lowestPrice !== null &&
+            lowestPrice >= Number(priceFilter.minPrice) &&
+            lowestPrice <= Number(priceFilter.maxPrice)
           : true;
 
       return matchesSearch && matchesPrice;
@@ -187,54 +189,60 @@ function Home() {
 
     return (
       <div className="products-grid">
-        {filteredProducts.map((product) => (
-          <div
-            key={product.id}
-            className="product-card"
-            onClick={() => handleViewDetails(product.id)}
-            style={{ cursor: "pointer" }}
-          >
-            <h2>{product.name}</h2>
-            <div className="image-container">
-              <img
-                src={process.env.PUBLIC_URL + product.image}
-                alt={product.name}
-                className="product-image"
-              />
-              <button
-                className="favorite-button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleFavoriteToggle(product);
-                }}
-                onMouseEnter={() => setShowHeartTooltip(product.id)}
-                onMouseLeave={() => setShowHeartTooltip(null)}
-                aria-label="Toggle favorite"
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  background: "none",
-                  border: "none",
-                  fontSize: "32px",
-                  cursor: "pointer",
-                  color: favorites.has(product.id) ? "red" : "gray",
-                  lineHeight: "1.1",
-                  transition: "color 0.3s",
-                }}
-              >
-                {favorites.has(product.id) ? "♥" : "♡"}
-                {showHeartTooltip === product.id && (
-                  <span className="heart-tooltip">Add to Favorites</span>
-                )}
-              </button>
+        {filteredProducts.map((product) => {
+          const lowestPrice = getLowestPriceForCurrentMonth(product.sites);
+
+          return (
+            <div
+              key={product.id}
+              className="product-card"
+              onClick={() => handleViewDetails(product.id, product.name)}
+              style={{ cursor: "pointer" }}
+            >
+              <h2>{product.name}</h2>
+              <div className="image-container">
+                <img
+                  src={process.env.PUBLIC_URL + product.image}
+                  alt={product.name}
+                  className="product-image"
+                />
+                <button
+                  className="favorite-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleFavoriteToggle(product);
+                  }}
+                  onMouseEnter={() => setShowHeartTooltip(product.id)}
+                  onMouseLeave={() => setShowHeartTooltip(null)}
+                  aria-label="Toggle favorite"
+                  style={{
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                    background: "none",
+                    border: "none",
+                    fontSize: "32px",
+                    cursor: "pointer",
+                    color: favorites.has(product.id) ? "red" : "gray",
+                    lineHeight: "1.1",
+                    transition: "color 0.3s",
+                  }}
+                >
+                  {favorites.has(product.id) ? "♥" : "♡"}
+                  {showHeartTooltip === product.id && (
+                    <span className="heart-tooltip">Add to Favorites</span>
+                  )}
+                </button>
+              </div>
+              <p>{product.information}</p>
+              {lowestPrice !== null ? (
+                <h5>${lowestPrice}</h5>
+              ) : (
+                <h5>Price not available</h5>
+              )}
             </div>
-            <p>{product.information}</p>
-            {product.sites && product.sites.length > 0 && (
-              <h5>${product.sites[0].price}</h5>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     );
   };
@@ -266,6 +274,10 @@ function Home() {
                       className="read-more-link"
                       onClick={() => {
                         setShowTooltip(false);
+                        updateBreadcrumbs((prevBreadcrumbs) => [
+                          ...prevBreadcrumbs,
+                          { name: "How Savr Works", path: "/learn-more" },
+                        ]);
                         navigate("/learn-more");
                       }}
                     >
