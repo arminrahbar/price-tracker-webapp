@@ -10,7 +10,7 @@ const pathNameMap = {
   favorites: "Favorites",
   "contact-us": "Contact",
   product: "Product Details",
-  "learn-more": "How Savr works",
+  "learn-more": "How Stingy works",
   "All%20Items": "All Items",
   // Add other paths as needed
 };
@@ -63,7 +63,7 @@ const Layout = ({
             onClick={handleLogoClick}
             style={{ cursor: "pointer" }}
           >
-            Savr
+            Stingy
           </h1>
           <p className="tagline">Your trusted price tracking site</p>
         </div>
@@ -130,7 +130,7 @@ const Layout = ({
                     navigate("/learn-more");
                   }}
                 >
-                  How Savr Works
+                  How Stingy Works
                 </span>
               </div>
             )}
@@ -164,13 +164,13 @@ const Layout = ({
               onClick={() => navigate("/learn-more")}
               className="footer-link"
             >
-              How Savr Works
+              How Stingy Works
             </span>
           </div>
 
           {/* Centered Text */}
           <p className="footer-text">
-            &copy; {new Date().getFullYear()} Savr. All rights reserved.
+            &copy; {new Date().getFullYear()} Stingy. All rights reserved.
           </p>
 
           {/* Social Media Icons Div */}

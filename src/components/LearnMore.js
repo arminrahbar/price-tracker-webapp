@@ -10,7 +10,7 @@ function LearnMore() {
   useEffect(() => {
     updateBreadcrumbs([
       { name: "Home", path: "/" },
-      { name: "How Savr Works", path: "/learn-more" },
+      { name: "How Stingy Works", path: "/learn-more" },
     ]);
   }, [updateBreadcrumbs]);
 
@@ -18,13 +18,13 @@ function LearnMore() {
     <Layout>
       <div className="container">
         <div className="second-header">
-          <h2>How Savr Works</h2>
+          <h2>How Stingy Works</h2>
           <div className="learn-more-container">
             <p>
               It is important to us that you feel safe when you compare prices
               of a product you might be interested to buy or use any of our
               other services. Therefore, we are providing you with certain
-              information about how to use Savr.
+              information about how to use Stingy.
             </p>
 
             <h2>How to find the products you are looking for</h2>
@@ -54,7 +54,7 @@ function LearnMore() {
             </p>
 
             <p>
-              Thank you for choosing Savr! <br />
+              Thank you for choosing Stingy! <br />
               We hope our platform helps you save time and money.
             </p>
           </div>
